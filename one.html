@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>年历</title>
+    <meta name="keywords" content="lunar,阳历,阴历,公历,农历,佛历,道历" />
+    <meta name="author" content="6tail" />
+    <meta
+      name="description"
+      content="lunar是一个无依赖的支持阳历、阴历、佛历和道历的日历工具库。"
+    />
+    <style type="text/css">
+      * {
+        user-select: none;
+      }
+      html,
+      body,
+      ul,
+      li,
+      h3,
+      div,
+      span {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      #calendar {
+        width: 350px;
+        height: 358px;
+        box-sizing: border-box;
+        margin: 0 auto;
+        overflow: hidden;
+      }
+      #calendar div.title {
+        font-size: 15px;
+        color: #606266;
+        margin-bottom: 10px;
+        text-align: center;
+      }
+      #calendar div.title input {
+        border: 1px solid #d7d9e0;
+        padding: 7px;
+        border-radius: 6px;
+        background: #ffffff;
+        width: 100px;
+        text-align: center;
+        font-size: 20px;
+      }
+      #calendar div.start {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+      }
+
+      #body ul {
+        position: relative;
+        display: block;
+        width: 350px;
+        height: 334px;
+        list-style: none;
+        background-color: #fafafa;
+      }
+      #body ul h3 {
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-size: 80px;
+        width: 100%;
+        height: 334px;
+        text-align: center;
+        line-height: 334px;
+        color: #333;
+        opacity: 0.1;
+        filter: alpha(opacity=10);
+      }
+      #body ul li {
+        position: relative;
+        float: left;
+        width: 50px;
+        height: 50px;
+        cursor: default;
+        color: #444;
+        text-align: center;
+      }
+      #body ul li i {
+        display: block;
+        font-size: 9px;
+        font-style: normal;
+        color: #999999;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      #body ul li u {
+        font-size: 9px;
+        font-style: normal;
+        text-decoration: none;
+        position: absolute;
+        right: 4px;
+        top: 0;
+        color: #333;
+      }
+      #body ul li.week {
+        height: 34px;
+        line-height: 33px;
+        font-size: 12px;
+        color: #333333;
+        border-bottom: 1px solid #e3e3e3;
+      }
+      #body ul li.rest u {
+        color: #5cb85c;
+      }
+      #body ul li.festival i {
+        color: #d02f12;
+      }
+      #body ul li.today {
+        font-weight: bold;
+        color: #1f80a9;
+      }
+      #body ul li.today i {
+        color: #1f80a9;
+      }
+      #body ul li.other {
+        opacity: 0.3;
+      }
+      .control {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 14px;
+        color: #606266;
+        margin: 4px auto;
+        padding-left: 8px;
+        padding-right: 8px;
+        box-sizing: border-box;
+      }
+      .control .year-control {
+        cursor: pointer;
+      }
+      .control .month-control {
+        cursor: pointer;
+      }
+      .control .today-control {
+        cursor: pointer;
+      }
+      .today-text {
+        font-size: 14px;
+        color: #606266;
+        margin: 4px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="calendar">
+      <div class="control">
+        <select class="year-control">
+          <option value="2024">2024</option>
+          <option value="2025">2025</option>
+          <option value="2026">2026</option>
+          <option value="2027">2027</option>
+        </select>
+        <div class="month-control">
+          <span class="pre">上一月</span>
+          <span class="next">下一月</span>
+        </div>
+        <span class="today-control">返回今日</span>
+      </div>
+      <div id="body"></div>
+    </div>
+    <script src="material/jquery.js"></script>
+    <script src="material/lunar.js"></script>
+    <script src="material/index.js"></script>
+  </body>
+</html>
