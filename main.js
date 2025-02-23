@@ -31,6 +31,8 @@ const createWindow = () => {
   });
 
   win.loadFile("one.html");
+  // 隐藏任务栏图标
+  win.setSkipTaskbar(true);
 
   // 监听窗口失去焦点事件
   win.on("blur", () => {
@@ -66,7 +68,7 @@ function showWindowUnderTray(tray, mainWindow) {
 
   // 获取当前屏幕的尺寸
   const screenSize = screen.getPrimaryDisplay().workAreaSize;
-
+  
   // 计算窗口的位置
   let x = Math.round(
     trayBounds.x - (windowBounds.width - trayBounds.width) / 2
@@ -87,6 +89,9 @@ function showWindowUnderTray(tray, mainWindow) {
 }
 
 app.whenReady().then(() => {
-  app.dock.hide();
+  if (process.platform === "darwin") {
+    //macos
+    app.dock.hide();
+  }
   createWindow();
 });
